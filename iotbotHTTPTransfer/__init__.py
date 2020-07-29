@@ -43,6 +43,7 @@ class Transfer:
         self.timeout = timeout
         self.config = dict()
         self.logger = logging.getLogger('iotbotHTTPTransfer')
+        self._initialed_settings = False
 
     def _initial_key(self):
         key = (os.getenv('TRANSFER_KEY')
@@ -54,8 +55,11 @@ class Transfer:
 
     def __call__(self, environ, start_response):
         # 放这里好别扭，但是不知道该放哪了
-        self._initial_key()
-        self._initial_serializer()
+        if not self._initialed_settings:
+            # 因为开始没考虑到初始化配置这茬, 只能这样加一层判断, 要不每次请求都要重载配置
+            self._initial_key()
+            self._initial_serializer()
+            self._initialed_settings = True
         return self._application(environ, start_response)
 
     def run(self, port=7788, log=True, host='0.0.0.0'):
