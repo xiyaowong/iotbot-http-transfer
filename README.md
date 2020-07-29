@@ -52,6 +52,8 @@ if __name__ == "__main__":
    原：`GET http://host:port/v1/ClusterInfo`
    现：`GET http://host:port/v1/ClusterInfo?token=eyJhbGciOiJIUzUxMiIsImlhdCI6MTU5NjAwNjc5MiwiZXhwIjoxNTk2MDkzMTkyfQ.Im9rLCBpdCcgZnVubnkuIg.MQ-WuAvmTY3f2ZcT_9bTij-mUKEQa38aYnLRWR8_q_FdEz11ug_kyBUgF81qtCU2fDsIZ1TfIhP7ZLMoUkoZFg`
 
+   或者可以设置请求头字段 `Authorization` 为 `token` 值
+
 ## 返回码
 
 有时难免程序出问题，所以增加了几个返回码, 如果是程序出错，返回的响应码都是 200 json 格式
