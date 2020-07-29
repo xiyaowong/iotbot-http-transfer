@@ -5,7 +5,7 @@
 ## 安装
 
 ```shell
-pip install git+https://github.com/xiyaowong/python-iotbot.git@master
+pip install git+https://github.com/xiyaowong/iotbot-http-transfer.git@master
 ```
 
 ## 使用
